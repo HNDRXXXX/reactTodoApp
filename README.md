@@ -1,10 +1,11 @@
-### Setup App
+### Install App
 npm install
 ```
-###Run App in Development mode on localhost:3000
+
+### Run App in Development mode on localhost:3000
 npm run start
 ```
 
-# Build App
+### Build App
 npm run build
 ```
