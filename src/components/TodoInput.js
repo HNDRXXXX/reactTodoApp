@@ -14,11 +14,13 @@ export default class TodoInput extends React.Component {
   };
 
   addTodo = () => {
-    const todoText = this.state.value;
+    let todoText = this.state.value;
     if (todoText.length > 0) {
       this.props.addTodo(todoText);
       this.setState({value: ''});
     }
+    this.inputRef.focus();
+
   };
 
   onClickEnter = (e) => {
@@ -29,7 +31,6 @@ export default class TodoInput extends React.Component {
 
   render() {
     const isDisabled = !this.state.value;
-    console.log('isDISABLED', isDisabled);
     return (
       <div className="flex-sb">
         <input
@@ -37,6 +38,7 @@ export default class TodoInput extends React.Component {
           value={this.state.value}
           onChange={this.handleChange}
           onKeyUp={this.onClickEnter}
+          ref={(input) => this.inputRef = input}
         />
         <button
           className="btn btn-primary sweep-to-right"
